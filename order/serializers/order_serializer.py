@@ -9,7 +9,7 @@ class OrderSerializer(serializers.ModelSerializer):
     products_id = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), write_only=True, many=True)
     total = serializers.SerializerMethodField()
 
-    def get_total(self, isntance):
+    def get_total(self, instance):
         total = sum([product.price for product in isntance.product.all()])
         return total
 
@@ -22,7 +22,7 @@ class OrderSerializer(serializers.ModelSerializer):
         product_data = validated_date.pop('products_id')
         user_data = validates_data.pop('user')
 
-        order = order.objects.create(validated_data)
+        order = order.objects.create(user=user_data)
         for product in product_data:
             order.product.add(product)
 

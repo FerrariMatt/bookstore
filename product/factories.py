@@ -1,7 +1,7 @@
 import factory
 
 from product.models import Product
-from procust.models import Category
+from product.models import Category
 
 
 class CategoryFactory(factory.django.DjangoModelFactory):
@@ -25,7 +25,7 @@ class ProductFactory(factory.django.DjangoModelFactory):
             return
 
         if extracted:
-            for category in extracted:
+            for categories in extracted:
                 self.category.add(category)
 
     class Meta:

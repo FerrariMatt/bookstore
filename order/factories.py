@@ -10,7 +10,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     username = factory.Faker('pystr')
 
     class Meta:
-        model = username
+        model = User
 
 
 class OrderFactory(factory.django.DjangoModelFactory):
