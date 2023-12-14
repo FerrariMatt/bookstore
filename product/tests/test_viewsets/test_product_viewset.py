@@ -27,8 +27,8 @@ class TestProductViewSet(APITestCase):
         )
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        product_data = json.loads(response.content)
 
+        product_data = json.loads(response.content)
         self.assertEqual(product_data[0]['title'], self.product.title)
         self.assertEqual(product_data[0]['price'], self.product.price)
         self.assertEqual(product_data[0]['active'], self.product.active)
@@ -46,6 +46,8 @@ class TestProductViewSet(APITestCase):
             data=data,
             content_type='application/json'
         )
+
+        # import pdb; pdb.set_trace()
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 

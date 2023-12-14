@@ -1,16 +1,17 @@
 from rest_framework import serializers
 
-from product.models.product import Product
-from product.models.category import Category
+from product.models.product import Category, Product
 from product.serializers.category_serializer import CategorySerializer
 
+
 class ProductSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(required=True, many=True)
+    category = CategorySerializer(read_only=True, many=True)
     categories_id = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), write_only=True, many=True)
 
     class Meta:
         model = Product
         fields = [
+            'id',
             'title',
             'description',
             'price',
@@ -26,4 +27,4 @@ class ProductSerializer(serializers.ModelSerializer):
         for category in category_data:
             product.category.add(category)
 
-        return product
+        return product 
