@@ -1,6 +1,6 @@
 import json
 
-from rest_framework.test import APITestCase, APIClient
+from rest_framework.test import APITestCase, APIClient, APIRequestFactory
 from rest_framework.views import status
 
 from django.urls import reverse
@@ -15,13 +15,17 @@ class TestProductViewSet(APITestCase):
 
     def setUp(self):
         self.user = UserFactory()
-
+        self.factory = APIRequestFactory()
+        request = self.factory.post('/product/', {"title":'pro controller',"price":200.00, "description":"teste","active": 1})
+        
         self.product = ProductFactory(
             title='pro controller',
             price=200.00,
         )
+        
 
     def test_get_all_product(self):
+
         response = self.client.get(
             reverse('product-list', kwargs={'version': 'v1'})
         )
