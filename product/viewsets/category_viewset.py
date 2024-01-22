@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 
-from product.models import Category 
+from product.models import Category
 from product.serializers.category_serializer import CategorySerializer
 
 
