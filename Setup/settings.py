@@ -26,7 +26,7 @@ SECRET_KEY = "$^qx4n+1#-w5wkcmtouet-mdif)w8)o1n0h90oj7$%-7p0ku&h"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ferraridev.pythonanywhere.com/']
 
 
 # Application definition
