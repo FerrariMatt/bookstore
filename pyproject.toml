@@ -6,7 +6,7 @@ authors = ["Ferrari <ferraridev18@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 pytest = "^7.4.3"
 factory-boy = "^3.3.0"
 djangorestframework = "^3.14.0"
